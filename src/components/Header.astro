@@ -1,0 +1,116 @@
+---
+
+import ContactModal from './ContactModal.astro';
+
+---
+<header class="backdrop-blur-md bg-black/30 max-w-full fixed top-0 left-0 right-0 mx-auto z-50 px-5 py-6 bg-[#111111] leading-5">
+  <div class="max-w-[1680px] mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-2">
+      <img src="/images/logo.svg" alt="logo">
+      <span class="text-white text-xl font-medium font-rf-expanded">level lab</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-4 font-rf-expanded">
+      <div class="flex mr-4 gap-12">
+        <a href="#cases" class="text-white/60 hover:text-red-700 transition-colors">Кейсы</a>
+        <a href="#services" class="text-white/60 hover:text-red-700 transition-colors">Услуги</a>
+        <a href="#about" class="text-white/60 hover:text-red-700 transition-colors">О нас</a>
+      </div>
+      <button id="contact-btn" class="text-red-700 border border-red-700 hover:bg-red-700 hover:text-black px-4 py-2 rounded-[28px] transition-colors leading-5">Связаться</button>
+    </nav>
+
+    <!-- Mobile Burger Button -->
+    <button class="md:hidden text-white" id="burger-btn" aria-label="Menu">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="14" width="28" height="1" rx="0.5" fill="white"/>
+        <rect x="20" y="25" width="14" height="1" rx="0.5" fill="white"/>
+      </svg>        
+    </button>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#111111] z-50 transform translate-x-full transition-transform duration-300">
+    <div class="flex justify-between items-center p-8">
+      <a href="#hero" class="flex items-center gap-2">
+        <img src="/images/logo.svg" alt="logo">
+        <span class="text-white text-xl font-medium font-rf-expanded">level lab</span>
+      </a>
+      <button id="close-menu-btn" class="text-white" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-8 items-center text-[14px] justify-center h-[calc(100%-96px)] font-rf-expanded pt-8 px-4">
+      <a href="#cases" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">Кейсы</a>
+      <a href="#services" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">Услуги</a>
+      <a href="#about" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">О нас</a>
+      <button class="w-full text-red-700 border border-red-700 px-8 py-4 rounded-[28px] transition-colors mobile-contact m-8">Связаться с нами</button>
+    </nav>
+  </div>
+</header>
+
+<ContactModal />
+
+<script>
+  const burgerBtn = document.getElementById('burger-btn');
+  const closeMenuBtn = document.getElementById('close-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  const contactBtn = document.getElementById('contact-btn');
+  const mobileContactBtn = document.querySelector('.mobile-contact');
+
+  // Function to close mobile menu
+  const closeMobileMenu = () => {
+    mobileMenu?.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+  };
+
+  // Function to handle contact button click
+  const handleContactClick = () => {
+    // Close mobile menu if open
+    closeMobileMenu();
+    // Open contact modal
+    (window as any).openContactModal();
+  };
+
+  burgerBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('translate-x-full');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeMenuBtn?.addEventListener('click', closeMobileMenu);
+
+  // Add click handlers for mobile menu links
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Add click handlers for contact buttons
+  contactBtn?.addEventListener('click', handleContactClick);
+  mobileContactBtn?.addEventListener('click', handleContactClick);
+
+  // Add smooth scrolling for all hash links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (this: HTMLAnchorElement, e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href')?.slice(1);
+      const targetElement = document.getElementById(targetId || '');
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+</style> 
