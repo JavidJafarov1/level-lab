@@ -3,7 +3,7 @@
 import ContactModal from './ContactModal.astro';
 
 ---
-<header class="backdrop-blur-md bg-black/30 max-w-full fixed top-0 left-0 right-0 mx-auto z-50 px-5 py-6 bg-[#111111] leading-5">
+<header class="backdrop-blur-md bg-black/30 max-w-full fixed top-0 left-0 right-0 mx-auto z-50 px-5 py-6 2xs:px-4 2xs:px-4 xs:px-4 xs:px-4 sm:px-4 sm:px-4 bg-[#111111] leading-5">
   <div class="max-w-[1680px] mx-auto flex items-center justify-between">
     <!-- Logo -->
     <a href="#hero" class="flex items-center gap-2">
@@ -22,35 +22,28 @@ import ContactModal from './ContactModal.astro';
     </nav>
 
     <!-- Mobile Burger Button -->
-    <button class="md:hidden text-white" id="burger-btn" aria-label="Menu">
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="6" y="14" width="28" height="1" rx="0.5" fill="white"/>
-        <rect x="20" y="25" width="14" height="1" rx="0.5" fill="white"/>
-      </svg>        
+    <button class="md:hidden text-white relative w-10 h-10" id="burger-btn" aria-label="Menu">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-7 h-5 relative">
+          <span class="absolute w-full h-0.5 bg-white transform transition-all duration-300 top-0 right-0" 
+                id="burger-line-1"></span>
+          <span class="absolute w-1/2 h-0.5 bg-white transform transition-all duration-300 bottom-0 right-0" 
+                id="burger-line-2"></span>
+        </div>
+      </div>
     </button>
   </div>
 
-  <!-- Mobile Navigation Menu -->
-  <div id="mobile-menu" class="fixed inset-0 bg-[#111111] z-50 transform translate-x-full transition-transform duration-300">
-    <div class="flex justify-between items-center p-8">
-      <a href="#hero" class="flex items-center gap-2">
-        <img src="/images/logo.svg" alt="logo">
-        <span class="text-white text-xl font-medium font-rf-expanded">level lab</span>
-      </a>
-      <button id="close-menu-btn" class="text-white" aria-label="Close menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </button>
-    </div>
-    <nav class="flex flex-col gap-8 items-center text-[14px] justify-center h-[calc(100%-96px)] font-rf-expanded pt-8 px-4">
-      <a href="#cases" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">Кейсы</a>
-      <a href="#services" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">Услуги</a>
-      <a href="#about" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">О нас</a>
-      <button class="w-full text-red-700 border border-red-700 px-8 py-4 rounded-[28px] transition-colors mobile-contact m-8">Связаться с нами</button>
-    </nav>
-  </div>
 </header>
+<!-- Mobile Navigation Menu -->
+<div id="mobile-menu" class="fixed inset-0 bg-[#111111] z-20 transform translate-x-full transition-transform duration-300">
+  <nav class="flex flex-col gap-8 items-center text-[14px] justify-center h-[calc(100%-96px)] font-rf-expanded pt-8 px-4">
+    <a href="#cases" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">Кейсы</a>
+    <a href="#services" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">Услуги</a>
+    <a href="#about" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">О нас</a>
+    <button class="w-full text-red-700 border border-red-700 px-8 py-4 rounded-[28px] transition-colors mobile-contact m-8">Связаться с нами</button>
+  </nav>
+</div>
 
 <ContactModal />
 
@@ -77,12 +70,27 @@ import ContactModal from './ContactModal.astro';
   };
 
   burgerBtn?.addEventListener('click', () => {
-    mobileMenu?.classList.remove('translate-x-full');
-    document.body.style.overflow = 'hidden';
+    const line1 = document.getElementById('burger-line-1');
+    const isMenuOpen = line1?.classList.contains('rotate-45');
+
+    if (isMenuOpen) {
+      // If it's in X state, call closeMobileMenu
+      closeMobileMenu();
+      // Reset burger animation
+      line1?.classList.remove('translate-y-[8px]', 'rotate-45', 'origin-center');
+      const line2 = document.getElementById('burger-line-2');
+      line2?.classList.remove('-translate-y-[10px]', '-rotate-45', 'origin-center', 'w-full', '-translate-x-0');
+    } else {
+      // If it's in burger state, just slide the menu
+      mobileMenu?.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+      
+      // Toggle burger to X animation
+      const line2 = document.getElementById('burger-line-2');
+      line1?.classList.add('translate-y-[8px]', 'rotate-45', 'origin-center');
+      line2?.classList.add('-translate-y-[10px]', '-rotate-45', 'origin-center', 'w-full', '-translate-x-0');
+    }
   });
-
-  closeMenuBtn?.addEventListener('click', closeMobileMenu);
-
   // Add click handlers for mobile menu links
   mobileLinks.forEach(link => {
     link.addEventListener('click', closeMobileMenu);
