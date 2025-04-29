@@ -1,0 +1,44 @@
+/* RF Dewi Regular */
+@font-face {
+    font-family: 'RFDewi';
+    src: url('/fonts/rf-dewi-regular.woff2') format('woff2'),
+         url('/fonts/rf-dewi-regular.woff') format('woff'),
+         url('/fonts/rf-dewi-regular.eot') format('embedded-opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* RF Dewi Expanded Regular */
+@font-face {
+    font-family: 'RFDewiExpanded';
+    src: url('/fonts/rf-dewi-expanded-regular.woff2') format('woff2'),
+         url('/fonts/rf-dewi-expanded-regular.woff') format('woff'),
+         url('/fonts/rf-dewi-expanded-regular.eot') format('embedded-opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* RF Dewi Expanded Black */
+@font-face {
+    font-family: 'RFDewiExpandedBlack';
+    src: url('/fonts/rf-dewi-expanded-black.woff2') format('woff2'),
+         url('/fonts/rf-dewi-expanded-black.woff') format('woff'),
+         url('/fonts/rf-dewi-expanded-black.eot') format('embedded-opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+.font-rf {
+    font-family: 'RFDewi', sans-serif;
+}
+
+.font-rf-expanded {
+    font-family: 'RFDewiExpanded', sans-serif;
+}
+
+.font-rf-expanded-black {
+    font-family: 'RFDewiExpandedBlack', sans-serif;
+}
