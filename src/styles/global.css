@@ -1,2 +1,29 @@
 @import "tailwindcss";
 @import "./font.css";
+
+@theme {
+    --breakpoint-2xs: 320px;
+    --breakpoint-xs: 393px;
+    --breakpoint-sm: 480px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1440px;
+    --breakpoint-2xl: 1680px;
+
+    --font-rf: 'RFDewi', sans-serif;
+    --font-rf-expanded: 'RFDewiExpanded', sans-serif;
+    --font-rf-expanded-black: 'RFDewiExpandedBlack', sans-serif;
+
+    --max-width-2xs: 320px;
+    --max-width-xs: 393px;
+    --max-width-sm: 480px;
+    --max-width-md: 768px;
+    --max-width-lg: 1024px;
+    --max-width-xl: 1440px;
+    --max-width-2xl: 1680px;
+
+    --color-primary: #FF4B26;
+    --color-secondary: #0066FF;
+    --color-dark: #111111;
+    --color-white: #FFFFFF;
+}
