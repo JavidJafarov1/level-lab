@@ -1,64 +1,107 @@
 ---
-
-import ContactModal from './ContactModal.astro';
-
+import ContactModal from "./ContactModal.astro";
 ---
-<header class="backdrop-blur-md bg-black/30 max-w-full fixed top-0 left-0 right-0 mx-auto z-50 px-5 py-6 2xs:px-4 2xs:px-4 xs:px-4 xs:px-4 sm:px-4 sm:px-4 leading-5">
-  <div class="max-w-2xl mx-auto flex items-center justify-between">
-    <!-- Logo -->
-    <a href="#hero" class="flex items-center gap-2">
-      <img src="/images/logo.svg" alt="logo">
-      <span class="text-white text-xl font-medium font-rf-expanded">level lab</span>
-    </a>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-4 font-rf-expanded">
-      <div class="flex mr-4 gap-12">
-        <a href="#cases" class="text-white/60 hover:text-red-700 transition-colors">Кейсы</a>
-        <a href="#services" class="text-white/60 hover:text-red-700 transition-colors">Услуги</a>
-        <a href="#about" class="text-white/60 hover:text-red-700 transition-colors">О нас</a>
-      </div>
-      <button id="contact-btn" class="text-red-700 border border-red-700 hover:bg-red-700 hover:text-black px-4 py-2 rounded-[28px] transition-colors leading-5">Связаться</button>
-    </nav>
+<div class="w-full">
+  <header
+    class="backdrop-blur-md bg-black/30 max-w-full fixed top-0 left-0 right-0 mx-auto z-50 px-5 py-6 2xs:px-4 2xs:py-4 xs:px-4 xs:py-4 sm:px-4 sm:py-4 leading-5"
+  >
+    <div class="max-w-2xl mx-auto 2xl:px-4 px-0 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-2">
+        <img src="/images/logo.svg" alt="logo" />
+        <span class="text-white text-xl font-medium font-rf-expanded"
+          >level lab</span
+        >
+      </a>
 
-    <!-- Mobile Burger Button -->
-    <button class="md:hidden text-white relative w-10 h-10" id="burger-btn" aria-label="Menu">
-      <div class="absolute inset-0 flex items-center justify-center">
-        <div class="w-7 h-5 relative">
-          <span class="absolute w-full h-0.5 bg-white transform transition-all duration-300 top-0 right-0" 
-                id="burger-line-1"></span>
-          <span class="absolute w-1/2 h-0.5 bg-white transform transition-all duration-300 bottom-0 right-0" 
-                id="burger-line-2"></span>
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-4 font-rf-expanded">
+        <div class="flex mr-4 gap-12">
+          <a
+            href="#cases"
+            class="text-white/60 hover:text-red-700 transition-colors">Кейсы</a
+          >
+          <a
+            href="#services"
+            class="text-white/60 hover:text-red-700 transition-colors">Услуги</a
+          >
+          <a
+            href="#about"
+            class="text-white/60 hover:text-red-700 transition-colors">О нас</a
+          >
         </div>
-      </div>
-    </button>
-  </div>
+        <button
+          id="contact-btn"
+          class="text-red-700 border border-red-700 hover:bg-red-700 hover:text-black px-4 py-2 rounded-[28px] transition-colors leading-5"
+          >Связаться</button
+        >
+      </nav>
 
-</header>
-<!-- Mobile Navigation Menu -->
-<div id="mobile-menu" class="fixed inset-0 bg-dark z-20 transform translate-x-full transition-transform duration-300">
-  <nav class="flex flex-col gap-8 items-center text-[14px] justify-center h-[calc(100%-96px)] font-rf-expanded pt-8 px-4">
-    <a href="#cases" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">Кейсы</a>
-    <a href="#services" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">Услуги</a>
-    <a href="#about" class="text-white/60 hover:text-white transition-colors py-4 mobile-link">О нас</a>
-    <button class="w-full text-red-700 border border-red-700 px-8 py-4 rounded-[28px] transition-colors mobile-contact m-8">Связаться с нами</button>
-  </nav>
+      <!-- Mobile Burger Button -->
+      <button
+        class="md:hidden text-white relative w-10 h-10"
+        id="burger-btn"
+        aria-label="Menu"
+      >
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-7 h-5 relative">
+            <span
+              class="absolute w-full h-0.5 bg-white transform transition-all duration-300 top-0 right-0"
+              id="burger-line-1"></span>
+            <span
+              class="absolute w-1/2 h-0.5 bg-white transform transition-all duration-300 bottom-0 right-0"
+              id="burger-line-2"></span>
+          </div>
+        </div>
+      </button>
+    </div>
+  </header>
+  <!-- Mobile Navigation Menu -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-dark z-20 transform translate-x-full transition-transform duration-300"
+  >
+    <nav
+      class="flex flex-col gap-8 items-center text-[14px] justify-center h-[calc(100%-96px)] font-rf-expanded pt-8 px-4"
+    >
+      <a
+        href="#cases"
+        class="text-white/60 hover:text-white transition-colors py-4 mobile-link"
+        >Кейсы</a
+      >
+      <a
+        href="#services"
+        class="text-white/60 hover:text-white transition-colors py-4 mobile-link"
+        >Услуги</a
+      >
+      <a
+        href="#about"
+        class="text-white/60 hover:text-white transition-colors py-4 mobile-link"
+        >О нас</a
+      >
+      <button
+        class="w-full text-red-700 border border-red-700 px-8 py-4 rounded-[28px] transition-colors mobile-contact m-8"
+        >Связаться с нами</button
+      >
+    </nav>
+  </div>
 </div>
 
 <ContactModal />
 
 <script>
-  const burgerBtn = document.getElementById('burger-btn');
-  const closeMenuBtn = document.getElementById('close-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
-  const contactBtn = document.getElementById('contact-btn');
-  const mobileContactBtn = document.querySelector('.mobile-contact');
+  const burgerBtn = document.getElementById("burger-btn");
+  const closeMenuBtn = document.getElementById("close-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
+  const contactBtn = document.getElementById("contact-btn");
+  const mobileContactBtn = document.querySelector(".mobile-contact");
 
   // Function to close mobile menu
   const closeMobileMenu = () => {
-    mobileMenu?.classList.add('translate-x-full');
-    document.body.style.overflow = '';
+    mobileMenu?.classList.add("translate-x-full");
+    document.body.style.overflow = "";
   };
 
   // Function to handle contact button click
@@ -69,47 +112,63 @@ import ContactModal from './ContactModal.astro';
     (window as any).openContactModal();
   };
 
-  burgerBtn?.addEventListener('click', () => {
-    const line1 = document.getElementById('burger-line-1');
-    const isMenuOpen = line1?.classList.contains('rotate-45');
+  burgerBtn?.addEventListener("click", () => {
+    const line1 = document.getElementById("burger-line-1");
+    const isMenuOpen = line1?.classList.contains("rotate-45");
 
     if (isMenuOpen) {
       // If it's in X state, call closeMobileMenu
       closeMobileMenu();
       // Reset burger animation
-      line1?.classList.remove('translate-y-[8px]', 'rotate-45', 'origin-center');
-      const line2 = document.getElementById('burger-line-2');
-      line2?.classList.remove('-translate-y-[10px]', '-rotate-45', 'origin-center', 'w-full', '-translate-x-0');
+      line1?.classList.remove(
+        "translate-y-[8px]",
+        "rotate-45",
+        "origin-center",
+      );
+      const line2 = document.getElementById("burger-line-2");
+      line2?.classList.remove(
+        "-translate-y-[10px]",
+        "-rotate-45",
+        "origin-center",
+        "w-full",
+        "-translate-x-0",
+      );
     } else {
       // If it's in burger state, just slide the menu
-      mobileMenu?.classList.remove('translate-x-full');
-      document.body.style.overflow = 'hidden';
-      
+      mobileMenu?.classList.remove("translate-x-full");
+      document.body.style.overflow = "hidden";
+
       // Toggle burger to X animation
-      const line2 = document.getElementById('burger-line-2');
-      line1?.classList.add('translate-y-[8px]', 'rotate-45', 'origin-center');
-      line2?.classList.add('-translate-y-[10px]', '-rotate-45', 'origin-center', 'w-full', '-translate-x-0');
+      const line2 = document.getElementById("burger-line-2");
+      line1?.classList.add("translate-y-[8px]", "rotate-45", "origin-center");
+      line2?.classList.add(
+        "-translate-y-[10px]",
+        "-rotate-45",
+        "origin-center",
+        "w-full",
+        "-translate-x-0",
+      );
     }
   });
   // Add click handlers for mobile menu links
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
   });
 
   // Add click handlers for contact buttons
-  contactBtn?.addEventListener('click', handleContactClick);
-  mobileContactBtn?.addEventListener('click', handleContactClick);
+  contactBtn?.addEventListener("click", handleContactClick);
+  mobileContactBtn?.addEventListener("click", handleContactClick);
 
   // Add smooth scrolling for all hash links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (this: HTMLAnchorElement, e) {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (this: HTMLAnchorElement, e) {
       e.preventDefault();
-      const targetId = this.getAttribute('href')?.slice(1);
-      const targetElement = document.getElementById(targetId || '');
-      
+      const targetId = this.getAttribute("href")?.slice(1);
+      const targetElement = document.getElementById(targetId || "");
+
       if (targetElement) {
         targetElement.scrollIntoView({
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }
     });
@@ -121,4 +180,5 @@ import ContactModal from './ContactModal.astro';
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
   }
-</style> 
+</style>
+
