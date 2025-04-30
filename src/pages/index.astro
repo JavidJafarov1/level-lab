@@ -473,6 +473,42 @@ import CaseImage from "../components/CaseImage.astro";
 				document.getElementById("about-side-label")!,
 				document.getElementById("about-right")!,
 			);
+
+			// Add scroll handler for about section
+			const header = document.getElementById('main-header');
+			const logoSpan = document.getElementById('logo')?.querySelector('span');
+			const desktopNav = document.getElementById('desktop-nav');
+			const aboutSection = document.getElementById('about');
+			
+			if (header && aboutSection) {
+				window.addEventListener('scroll', () => {
+					const headerRect = header.getBoundingClientRect();
+					const aboutRect = aboutSection.getBoundingClientRect();
+					
+					// Calculate if header is fully within about section
+					const isHeaderInAbout = 
+						headerRect.bottom <= aboutRect.bottom && 
+						headerRect.top >= aboutRect.top;
+					
+					if (isHeaderInAbout) {
+						// When header is fully in about section
+						header.classList.add('bg-white', 'text-black');
+						header.classList.remove('bg-transparent', 'text-white');
+						logoSpan?.classList.add('text-black');
+						logoSpan?.classList.remove('text-white');
+						desktopNav?.classList.add('text-black');
+						desktopNav?.classList.remove('text-white');
+					} else {
+						// When header is not in about section
+						header.classList.remove('bg-white', 'text-black');
+						header.classList.add('bg-transparent', 'text-white');
+						logoSpan?.classList.remove('text-black');
+						logoSpan?.classList.add('text-white');
+						desktopNav?.classList.remove('text-black');
+						desktopNav?.classList.add('text-white');
+					}
+				});
+			}
 		</script>
 	</body>
 </html>

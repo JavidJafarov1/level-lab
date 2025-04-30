@@ -4,11 +4,12 @@ import ContactModal from "./ContactModal.astro";
 
 <div class="w-full">
   <header
-    class="backdrop-blur-md bg-black/30 max-w-full fixed top-0 left-0 right-0 mx-auto z-50 px-5 py-6 2xs:px-4 2xs:py-4 xs:px-4 xs:py-4 sm:px-4 sm:py-4 leading-5"
+    class="backdrop-blur-md bg-black/30 max-w-full fixed top-0 left-0 right-0 mx-auto z-50 px-5 py-6 2xs:px-4 2xs:py-4 xs:px-4 xs:py-4 sm:px-4 sm:py-4"
+    id="main-header"
   >
     <div class="max-w-2xl mx-auto 2xl:px-4 px-0 flex items-center justify-between">
       <!-- Logo -->
-      <a href="#hero" class="flex items-center gap-2">
+      <a id="logo" href="#hero" class="flex items-center gap-2">
         <img src="/images/logo.svg" alt="logo" />
         <span class="text-white text-xl font-medium font-rf-expanded"
           >level lab</span
@@ -17,18 +18,18 @@ import ContactModal from "./ContactModal.astro";
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-4 font-rf-expanded md:text-desktop-menu">
-        <div class="flex mr-4 gap-12">
+        <div id="desktop-nav" class="flex mr-4 gap-12 text-white">
           <a
             href="#cases"
-            class="text-white hover:text-primary transition-colors">Кейсы</a
+            class="hover:text-primary transition-colors">Кейсы</a
           >
           <a
             href="#services"
-            class="text-white hover:text-primary transition-colors">Услуги</a
+            class="hover:text-primary transition-colors">Услуги</a
           >
           <a
             href="#about"
-            class="text-white hover:text-primary transition-colors">О нас</a
+            class="hover:text-primary transition-colors">О нас</a
           >
         </div>
         <button
