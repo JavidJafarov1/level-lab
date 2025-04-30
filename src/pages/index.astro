@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import GradientButtton from "../components/gradientButtton.astro";
+import GradientButton from "../components/gradientButton.astro";
+import ContentLayout from "../layouts/ContentLayout.astro";
+import CaseLayout from "../components/CaseImage.astro";
+import ServiceSection from "../components/ServicesSection.astro";
 import "../styles/global.css";
 ---
 
@@ -12,7 +15,7 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>Level Lab</title>
 	</head>
-	<body class="p-0">
+	<body class="p-0 bg-dark">
 		<BaseLayout>
 			<section
 				id="hero"
@@ -20,44 +23,59 @@ import "../styles/global.css";
 				style='background-image: url("https://static.tildacdn.com/tild3132-6263-4337-b335-333364626534/1outputcompress-vide.gif");'
 			>
 				<div
-					class="flex justify-center 2xs:w-[288px] xs:w-[361px] sm:w-[448px] md:w-[440px] 2xs:pt-[436px] xs:pt-[516px] sm:pt-[746px] md:pt-[452px] lg:pt-[520px] xl:pt-[620px] 2xl:pt-[620px] mx-auto"
+					class="flex justify-center 2xs:mx-4 xs:mx-4 sm:mx-4 2xs:pt-[436px] xs:pt-[516px] sm:pt-[746px] md:pt-[452px] lg:pt-[520px] xl:pt-[620px] 2xl:pt-[620px] mx-auto"
 				>
-					<GradientButtton className="2xs:text-[20px] xs:text-[20px] sm:text-[20px] md:text-[24px] lg:text-[24px] xl:text-[24px] 2xl:text-[24px]" text="Обсудить задачу" icon="icon1.svg" />
+					<GradientButton text="Обсудить задачу" icon="icon1.svg" />
+				</div>
+			</section>
+			<section id="cases">
+				<div class="bg-dark">
+					<div
+						class="2xs:pt-[60px] xs:pt-[16px] sm:pt-[100px] md:pt-[280px] lg:pt-[180px] xl:pt-[220px] 2xl:pt-[220px]"
+					>
+					</div>
+					<ContentLayout>
+						<CaseLayout />
+					</ContentLayout>
 				</div>
 			</section>
 		</BaseLayout>
 		<script>
-			function setScrollLayout(element: HTMLElement, secondColumn: HTMLElement) {
-			  window.addEventListener("scroll", (ev) => {
-				// console.log(window.innerWidth);
-				if (window.innerWidth < 1440) return;
-				const topSpace = secondColumn.getBoundingClientRect().top;
-				const bottomSpace =
-				  secondColumn.getBoundingClientRect().bottom - window.innerHeight;
-				if (topSpace > 0) {
-				  element.classList.remove("client-side-label-center");
-				  element.classList.add("client-side-label-top");
-				} else if (topSpace < 0 && bottomSpace > 0) {
-				  element.classList.remove(
-					"client-side-label-top",
-					"client-side-label-bottom"
-				  );
-				  element.classList.add("client-side-label-center");
-				} else {
-				  element.classList.remove("client-side-label-center");
-				  element.classList.add("client-side-label-bottom");
-				}
-			  });
+			function setScrollLayout(
+				element: HTMLElement,
+				secondColumn: HTMLElement,
+			) {
+				window.addEventListener("scroll", (ev) => {
+					// console.log(window.innerWidth);
+					if (window.innerWidth < 1440) return;
+					const topSpace = secondColumn.getBoundingClientRect().top;
+					const bottomSpace =
+						secondColumn.getBoundingClientRect().bottom -
+						window.innerHeight;
+					if (topSpace > 0) {
+						element.classList.remove("client-side-label-center");
+						element.classList.add("client-side-label-top");
+					} else if (topSpace < 0 && bottomSpace > 0) {
+						element.classList.remove(
+							"client-side-label-top",
+							"client-side-label-bottom",
+						);
+						element.classList.add("client-side-label-center");
+					} else {
+						element.classList.remove("client-side-label-center");
+						element.classList.add("client-side-label-bottom");
+					}
+				});
 			}
-	  
+
 			setScrollLayout(
-			  document.getElementById("client-side-label")!,
-			  document.getElementById("clients-right")!
+				document.getElementById("client-side-label")!,
+				document.getElementById("clients-right")!,
 			);
 			setScrollLayout(
-			  document.getElementById("about-side-label")!,
-			  document.getElementById("about-right")!
+				document.getElementById("about-side-label")!,
+				document.getElementById("about-right")!,
 			);
-		  </script>
+		</script>
 	</body>
 </html>

@@ -1,0 +1,139 @@
+---
+import GradientButton from "../components/gradientButton.astro";
+---
+
+<div class="bg-dark">
+    <div class="flex flex items-center justify-between gap-4 bg-dark">
+        <span
+            class="2xs:text-[29px] xs:text-[29px] sm:text-[29px] md:text-[48px] lg:text-[48px] xl:text-[48px] 2xl:text-[48px] text-white font-rf-expanded font-bold"
+        >
+            КЕЙСЫ
+        </span>
+
+        <div class="flex gap-4 hidden md:inline-block">
+            <!-- Arrow Button -->
+            <button class="group relative w-12 h-12">
+                <!-- Circle Background -->
+                <div
+                    class="absolute inset-0 rounded-full bg-[#DF1B00]/10 opacity-40"
+                >
+                </div>
+
+                <!-- Border Effect -->
+                <div class="absolute inset-0 rounded-full">
+                    <div
+                        class="absolute inset-0 rounded-full border border-[#DF1B00]"
+                    >
+                    </div>
+                </div>
+
+                <!-- Arrow Icon -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="transform group-hover:-translate-x-1 transition-transform"
+                    >
+                        <path
+                            d="M15 6L9 12L15 18"
+                            stroke="#DF1B00"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+            </button>
+            <!-- Arrow Button -->
+            <button class="group relative w-12 h-12">
+                <!-- Circle Background -->
+                <div class="absolute inset-0 rounded-full bg-[#DF1B00]/10">
+                </div>
+
+                <!-- Border Effect -->
+                <div class="absolute inset-0 rounded-full">
+                    <div
+                        class="absolute inset-0 rounded-full border border-[#DF1B00]"
+                    >
+                    </div>
+                </div>
+
+                <!-- Arrow Icon -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="transform group-hover:translate-x-1 transition-transform"
+                    >
+                        <path
+                            d="M9 18L15 12L9 6"
+                            stroke="#DF1B00"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </div>
+    <div class="pt-10"></div>
+    <div
+        class="grid grid-cols-1 lg:grid-cols-2 lg:h-[600px] gap-4 lg:gap-[2.5rem] bg-dark"
+    >
+        <!-- Banca Case - Full Width in First Row -->
+        <div
+            id="banca"
+            class="border-[2px] border-[#1f1e1e] relative 2xs:h-[448px] md:h-[600px] lg:col-span-1 bg-[url('/images/img1.svg')] bg-no-repeat bg-size-[1332px_1267px] bg-[-175px_-680px]"
+        >
+            <div class="absolute top-0 left-0 p-6">
+                <img src="/images/banca.svg" alt="Banca Logo" class="mb-4" />
+            </div>
+            <div class="absolute bottom-0 left-0 p-6">
+                <p class="text-white text-sm max-w-[280px]">
+                    ВЫВЕЛИ НА РЫНОК ИНВЕСТИЦИОННОГО БРОКЕРА В КЫРГЫЗСТАНЕ
+                </p>
+            </div>
+        </div>
+
+        <div id="mpstats-expert" class="relative col-span-1 grid grid-rows-2 gap-4 lg:gap-[2.5rem]">
+            <!-- MPStats Case -->
+            <div
+                class="relative h-[280px] border-[2px] border-[#1f1e1e] bg-[url('/images/img2.svg')] bg-no-repeat bg-size-[900px_900px] bg-[-100px_-230px]"
+            >
+                <div class="absolute top-0 left-0 p-6">
+                    <img
+                        src="/images/mpstats.svg"
+                        alt="Mpstats Logo"
+                        class="h-6 mb-4"
+                    />
+                </div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <p class="text-white text-sm max-w-[280px]">
+                        помогли MPSTATS выделиться среди 30+ конкурентов
+                    </p>
+                </div>
+            </div>
+
+            <!-- Expert Case -->
+            <div
+                class="case relative border-[2px] border-[#1f1e1e] h-[280px] bg-[url('/images/man.svg')] bg-no-repeat bg-right"
+            >
+                <div class="absolute top-0 left-0 p-6">
+                    <img src="/images/sign.svg" alt="Sign" class="h-6 mb-4" />
+                </div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <p class="text-white text-sm max-w-[280px]">
+                        превратили опыт в сильный бренд эксперта по продажам
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pt-16"></div>
+    <div class="flex justify-center">
+        <GradientButton text="Все кейсы" icon="icon2.svg" />
+    </div>
+</div>
