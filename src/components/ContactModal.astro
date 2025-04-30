@@ -1,111 +1,137 @@
+---
+import GradientButton from "./gradientButton.astro";
+---
+
 <div id="contact-modal" class="fixed inset-0 z-[100] hidden">
-    <!-- Backdrop -->
-    <div class="absolute inset-0 bg-black/80"></div>
-    
-    <!-- Modal -->
-    <div class="relative z-10 min-h-screen w-full flex items-center justify-center px-4">
-      <div class="bg-[#111111] w-full max-w-[580px] rounded-2xl p-8 md:p-12">
-        <!-- Close button -->
-        <div class="flex justify-end mb-8">
-          <button id="close-modal-btn" class="text-white hover:text-white/80 transition-colors">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </button>
-        </div>
-  
-        <!-- Content -->
-        <div class="text-center mb-12">
-          <h2 class="text-white text-2xl md:text-3xl font-bold mb-2">БУДЕТ ZOOM-ВСТРЕЧА</h2>
-          <p class="text-white/60 text-sm">Познакомимся и разберем вашу задачу</p>
-        </div>
-  
-        <!-- Form -->
-        <form id="contact-form" class="space-y-4">
-          <div class="space-y-4">
-            <input 
-              type="text" 
-              placeholder="Имя" 
-              class="w-full bg-[#222222] border border-white/10 rounded-lg px-6 py-4 text-white placeholder-white/40 focus:outline-none focus:border-[#FF4B26]"
-              required
-            />
-            <input 
-              type="text" 
-              placeholder="Telegram" 
-              class="w-full bg-[#222222] border border-white/10 rounded-lg px-6 py-4 text-white placeholder-white/40 focus:outline-none focus:border-[#FF4B26]"
-              required
-            />
-            <div class="relative">
-              <select 
-                class="w-full bg-[#222222] border border-white/10 rounded-lg px-6 py-4 text-white/40 appearance-none focus:outline-none focus:border-[#FF4B26] cursor-pointer"
-                required
-              >
-                <option value="" disabled selected>Ваша задача или вопрос</option>
-                <option value="market">Анализ рынка</option>
-                <option value="brand">Создание бренда</option>
-                <option value="strategy">Маркетинговая стратегия</option>
-                <option value="other">Другое</option>
-              </select>
-              <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none">
-                <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1.5L6 6.5L11 1.5" stroke="white" stroke-width="1.5"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-  
-          <button 
-            type="submit"
-            class="w-full bg-gradient-to-r from-[#FF4B26] to-[#FF4B26] hover:opacity-90 transition-opacity text-white rounded-lg px-6 py-4 flex items-center justify-center gap-2 group"
-          >
-            <span>Отправить запрос</span>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform group-hover:translate-x-1">
-              <path d="M4.16669 10H15.8334M15.8334 10L10.8334 5M15.8334 10L10.8334 15" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </button>
-        </form>
+  <!-- Backdrop -->
+  <div class="absolute inset-0 backdrop-blur-2xl bg-grey/90"></div>
+
+  <!-- Close button -->
+  <button
+    id="close-modal-btn"
+    class="text-white hover:text-white/80 transition-colors right-4 top-4 absolute cursor-pointer"
+  >
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2"
+      ></path>
+    </svg>
+  </button>
+  <!-- Modal -->
+  <div
+    class="relative z-10 min-h-screen w-full max-w-[623px] flex items-center justify-center mx-auto px-4"
+  >
+    <!-- Form -->
+    <form id="contact-form" class="flex flex-col gap-[80px]">
+      <div class="text-center mb-4">
+        <h2 class="text-white md:text-desktop-h1 mb-2 font-rf-expanded-black">
+          БУДЕТ ZOOM-ВСТРЕЧА
+        </h2>
+        <p class="text-white/60 text-desktop-text">
+          Познакомимся и разберем вашу задачу
+        </p>
       </div>
-    </div>
+      <div class="space-y-4">
+        <input
+          type="text"
+          placeholder="Имя"
+          class="w-full bg-[#1F1E1E] border border-white/10 rounded-[48px] px-8 py-6 text-white placeholder-white/40 text-mobile-button md:text-desktop-button"
+        />
+        <input
+          type="text"
+          placeholder="Telegram"
+          class="w-full bg-[#1F1E1E] border border-white/10 rounded-[48px] px-8 py-6 text-white placeholder-white/40 text-mobile-button md:text-desktop-button"
+        />
+        <div class="relative">
+          <select
+            class="w-full bg-[#1F1E1E] border border-white/10 rounded-[48px] px-8 py-6 text-white/40 focus:outline-none text-mobile-button md:text-desktop-button cursor-pointer appearance-none"
+            required
+          >
+            <option value="" selected>Ваша задача или вопрос</option>
+            <option value="market">Анализ рынка</option>
+            <option value="brand">Создание бренда</option>
+            <option value="strategy">Маркетинговая стратегия</option>
+            <option value="other">Другое</option>
+          </select>
+          <div
+            class="absolute right-8 top-1/2 -translate-y-1/2 pointer-events-none"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 9L12 15L18 9"
+                stroke="white"
+                stroke-opacity="0.4"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <GradientButton
+        className="w-full"
+        text="Отправить запрос"
+        icon="icon3.png"
+      />
+    </form>
   </div>
-  
-  <!-- <script>
-    const modal = document.getElementById('contact-modal');
-    const closeBtn = document.getElementById('close-modal-btn');
-    const form = document.getElementById('contact-form');
-  
-    // Function to open modal
-    window.openContactModal = () => {
-      modal?.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    };
-  
-    // Function to close modal
-    const closeModal = () => {
-      modal?.classList.add('hidden');
-      document.body.style.overflow = '';
-    };
-  
-    // Close button click handler
-    closeBtn?.addEventListener('click', closeModal);
-  
-    // Close on backdrop click
-    modal?.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-  
-    // Form submission
-    form?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // Add your form submission logic here
+</div>
+
+<script>
+  declare global {
+    interface Window {
+      openContactModal: () => void;
+    }
+  }
+
+  const modal = document.getElementById("contact-modal");
+  const closeBtn = document.getElementById("close-modal-btn");
+  const form = document.getElementById("contact-form");
+
+  // Function to open modal
+  window.openContactModal = () => {
+    modal?.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  };
+
+  // Function to close modal
+  const closeModal = () => {
+    modal?.classList.add("hidden");
+    document.body.style.overflow = "";
+  };
+
+  // Close button click handler
+  closeBtn?.addEventListener("click", closeModal);
+
+  // Close on backdrop click
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) {
       closeModal();
-    });
-  
-    // Close on escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
-        closeModal();
-      }
-    });
-  </script>  -->
+    }
+  });
+
+  // Form submission
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // Add your form submission logic here
+    closeModal();
+  });
+
+  // Close on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal?.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+</script>
