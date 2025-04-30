@@ -84,11 +84,11 @@ const services = {
 ---
 
 <ContentLayout>
-  <div class="xl:pt-35 lg:pt-20 md:pt-35"></div>
+  <div class="pt-15 xl:pt-35 lg:pt-20 md:pt-35"></div>
   <div class="flex flex-col xl:gap-10 gap-20">
     <div>
-      <h2 class="text-3xl text-white mb-4 font-rf-expanded-black">УСЛУГИ ДЛЯ БИЗНЕСА</h2>
-      <p class="text-white/60 text-[16px]">
+      <h2 class="text-mobile-h1 md:text-desktop-h1 text-white mb-4 font-rf-expanded-black">УСЛУГИ ДЛЯ БИЗНЕСА</h2>
+      <p class="text-white/60 text-mobile-text md:text-desktop-text">
         Выберите интересующие вас услуги и запишитесь на консультацию. Мы оценим
         предварительную стоимость, сроки и свяжемся с вами.
       </p>
@@ -98,7 +98,7 @@ const services = {
     >
       <!-- Research Column -->
       <div>
-        <h3 class="text-white/40 uppercase mb-8 font-rf-expanded-black">Исследуем</h3>
+        <h3 class="text-white/40 text-mobile-h2 md:text-desktop-h3 uppercase mb-8 font-rf-expanded-black">Исследуем</h3>
         <div class="space-y-6">
           {
             services.research.map((service) => (
@@ -113,7 +113,7 @@ const services = {
 
       <!-- Create Column -->
       <div>
-        <h3 class="text-white/40 uppercase mb-8 font-rf-expanded-black">Создаем</h3>
+        <h3 class="text-white/40 text-mobile-h2 md:text-desktop-h3 uppercase mb-8 font-rf-expanded-black">Создаем</h3>
         <div class="space-y-6">
           {
             services.create.map((service) => (
@@ -128,7 +128,7 @@ const services = {
 
       <!-- Result Column -->
       <div>
-        <h3 class="text-white/40 uppercase mb-8 font-rf-expanded-black">Ведем к результату</h3>
+        <h3 class="text-white/40 text-mobile-h2 md:text-desktop-h3 uppercase mb-8 font-rf-expanded-black">Ведем к результату</h3>
         <div class="space-y-6">
           {
             services.result.map((service) => (
@@ -145,20 +145,20 @@ const services = {
     <!-- Contact Form -->
     <!-- <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4"> -->
     <div
-      class="flex flex-col md:flex-row justify-between lg:gap-8 gap-4 font-rf-expanded text-[18px]"
+      class="flex flex-col md:flex-row justify-between lg:gap-8 gap-4 font-rf-expanded"
     >
       <input
         type="text"
         placeholder="Имя"
-        class="w-full md:w-1/3 w-min-[232px] bg-white/5 border border-white/10 rounded-[30px] px-6 py-4 text-white placeholder-white/40"
+        class="w-full md:w-1/3 w-min-[232px] bg-white/5 border border-white/10 rounded-[30px] px-6 py-4 text-white placeholder-white/40 text-mobile-button md:text-desktop-button"
       />
       <input
         type="tel"
         placeholder="Телефон"
-        class="w-full md:w-1/3 w-min-[232px] bg-white/5 border border-white/10 rounded-[30px] px-6 py-4 text-white placeholder-white/40"
+        class="w-full md:w-1/3 w-min-[232px] bg-white/5 border border-white/10 rounded-[30px] px-6 py-4 text-white placeholder-white/40 text-mobile-button md:text-desktop-button"
       />
       <div class="w-full md:w-1/3">
-        <GradientButton className="w-full mx-auto" text="Отправить" icon="icon3.png" />
+        <GradientButton className="w-full mx-auto text-mobile-button md:text-desktop-button" text="Отправить" icon="icon3.png" />
       </div>
     </div>
   </div>

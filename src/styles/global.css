@@ -27,4 +27,19 @@
     --color-secondary: #0066FF;
     --color-dark: #0E0E0E;
     --color-white: #FFFFFF;
+
+    --text-desktop-h1: 40px;
+    --text-desktop-h3: 24px;
+    --text-desktop-h5: 16px;
+    --text-desktop-body: 24px;
+    --text-desktop-button: 20px;
+    --text-desktop-text: 16px;
+    --text-desktop-menu: 12px;
+
+    --text-mobile-h1: 24px;
+    --text-mobile-h3: 16px;
+    --text-mobile-h5: 11px;
+    --text-mobile-button: 15px;
+    --text-mobile-body: 18px;
+    --text-mobile-text: 15px;
 }

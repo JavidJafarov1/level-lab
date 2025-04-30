@@ -7,8 +7,8 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<div class="service-item xl:w-full" data-expanded="false">
-  <div class="flex items-center justify-between p-4">
+<div class="service-item xl:w-full cursor-pointer" data-expanded="false">
+  <div class="flex items-center justify-between px-6 py-5">
     <div class="flex items-center gap-2.5">
       <label class="custom-checkbox" onclick="event.stopPropagation();">
         <input type="checkbox" class="hidden" />
@@ -32,7 +32,7 @@ const { title, description } = Astro.props;
   <div 
     class="description-content overflow-hidden transition-all duration-200 max-h-0"
   >
-    <p class="text-white/60 p-4 text-sm">
+    <p class="text-white/60 p-6 pt-0 text-mobile-text md:text-desktop-text">
       {description}
     </p>
   </div>
@@ -51,8 +51,8 @@ const { title, description } = Astro.props;
   .custom-checkbox {
     display: block;
     position: relative;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
   }
 
@@ -60,10 +60,10 @@ const { title, description } = Astro.props;
     position: absolute;
     top: 0;
     left: 0;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #DF1B00;
-    border-radius: 8px;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #DF1B00;
+    border-radius: 7px;
     transition: all 0.2s ease;
   }
 
@@ -101,7 +101,7 @@ const { title, description } = Astro.props;
     serviceItems.forEach(item => {
       const chevronButton = item.querySelector('[data-chevron]');
       
-      chevronButton?.addEventListener('click', (e) => {
+      item?.addEventListener('click', (e) => {
         e.stopPropagation();
         const isExpanded = item.getAttribute('data-expanded') === 'true';
         item.setAttribute('data-expanded', (!isExpanded).toString());

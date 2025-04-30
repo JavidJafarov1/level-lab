@@ -5,7 +5,7 @@ interface Props {
   icon?: string;
 }
 
-const { text = "", className = "2xs:w-full xs:w-full sm:w-full md:w-[440px] lg:w-[440px] xl:w-[440px] 2xl:w-[440px] mx-auto", icon = "" } = Astro.props;
+const { text = "", className = "2xs:w-full xs:w-full sm:w-full md:w-[440px] lg:w-[440px] xl:w-[440px] 2xl:w-[440px] mx-auto text-mobile-button md:text-desktop-button", icon = "" } = Astro.props;
 ---
 
 <button class={`gradient-button group w-full ${className}`}>
