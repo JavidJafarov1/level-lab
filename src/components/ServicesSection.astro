@@ -1,0 +1,165 @@
+---
+import ContentLayout from "../layouts/ContentLayout.astro";
+import ServiceItem from "./ServiceItem.astro";
+import GradientButton from "./gradientButton.astro";
+
+const services = {
+  research: [
+    {
+      title: "АНАЛИЗ РЫНКА",
+      description:
+        "Исследуем рынок по методикам Портера, McKinsey и TAM-SAM-SOM — изучаем нишу, конкурентов и потенциал рынка. Показываем, где можно расти и как занять лидирующие позиции.",
+    },
+    {
+      title: "КОНКУРЕНТНЫЙ АНАЛИЗ",
+      description:
+        "Выявляем, чем вы лучше и слабее конкурентов. Даем стратегии, которые помогут вам выделиться и привлечь больше клиентов.",
+    },
+    {
+      title: "АУДИТ МАРКЕТИНГА И ПРОДАЖ",
+      description:
+        "Находим слабые места в рекламе и воронке продаж. Даем точные рекомендации, которые увеличат конверсию и прибыль.",
+    },
+    {
+      title: "UX/UI АУДИТ",
+      description:
+        "Находим ошибки, которые мешают пользователя, чтобы улучшить интерфейс, убрать барьеры и повысить конверсию.",
+    },
+    {
+      title: "ИССЛЕДОВАНИЕ АУДИТОРИИ",
+      description:
+        "Разбираемся, кто ваши клиенты и что им важно. Помогаем создать предложения, которые точно попадут в цель.",
+    },
+    {
+      title: "ИССЛЕДОВАНИЕ JTBD",
+      description:
+        "Выясняем, какие задачи решают ваши клиенты. Помогаем адаптировать продукт так, чтобы его покупали чаще.",
+    },
+  ],
+  create: [
+    {
+      title: "УПАКОВКА ПРОДУКТА",
+      description:
+        "Исследуем рынок и конкурентов, анализируем аудиторию, пишем продающие тексты и создаем конверсионно-ориентированный дизайн-макет, чтобы продукт продавался лучше.",
+    },
+    {
+      title: "ПЛАТФОРМА БРЕНДА",
+      description:
+        "Формулируем ценности, миссию и позиционирование бренда. Делаем так, чтобы клиенты запомнили и выбрали вас.",
+    },
+    {
+      title: "СТРАТЕГИЯ МАРКЕТИНГА",
+      description:
+        "Разрабатываем понятный и реалистичный план действий, который приведет к росту продаж. Без воды, только факты и работающие инструменты.",
+    },
+    {
+      title: "БРЕНДИНГ",
+      description:
+        "Создаем уникальный стиль, голос и образ бренда. Делаем так, чтобы вас узнавали, запоминали и выбирали.",
+    },
+    {
+      title: "ДИЗАЙН-МАКЕТ",
+      description:
+        "Создаем понятный и удобный дизайн, который удерживает внимание и повышает конверсию. Красиво, логично, эффективно.",
+    },
+  ],
+  result: [
+    {
+      title: "МАРКЕТИНГОВЫЙ ТРЕКИНГ",
+      description:
+        "Сопровождаем вашу команду к цели, движемся опытным путем через контактами. Отслеживаем ключевые показатели, анализируем данные. Управляем метриками, работаем с менеджментом маркетинга, большей эффективности, меньше ненужных действий и затрат.",
+    },
+    {
+      title: "АРТ-ДИРЕКШН",
+      description:
+        "Контролируем дизайн, следим за стилем и качеством. Делаем так, чтобы бренд выглядел дорого и уверенно.",
+    },
+    {
+      title: "КОНСАЛТИНГ",
+      description:
+        "Разбираем ваш запрос, находим точки роста, даем пошаговый план действий в рамках онлайн-встречи.",
+    },
+  ],
+};
+---
+
+<ContentLayout>
+  <div class="xl:pt-35 lg:pt-20 md:pt-35"></div>
+  <div class="flex flex-col xl:gap-10 gap-20">
+    <div>
+      <h2 class="text-3xl font-bold text-white mb-4">УСЛУГИ ДЛЯ БИЗНЕСА</h2>
+      <p class="text-white/60 text-[16px]">
+        Выберите интересующие вас услуги и запишитесь на консультацию. Мы оценим
+        предварительную стоимость, сроки и свяжемся с вами.
+      </p>
+    </div>
+    <div
+      class="grid grid-cols-1 xl:grid-cols-3 md:grid-cols-2 xl:gap-10 lg:gap-8 md:gap-2 gap-2"
+    >
+      <!-- Research Column -->
+      <div>
+        <h3 class="text-white/40 uppercase mb-8">Исследуем</h3>
+        <div class="space-y-6">
+          {
+            services.research.map((service) => (
+              <ServiceItem
+                title={service.title}
+                description={service.description}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Create Column -->
+      <div>
+        <h3 class="text-white/40 uppercase mb-8">Создаем</h3>
+        <div class="space-y-6">
+          {
+            services.create.map((service) => (
+              <ServiceItem
+                title={service.title}
+                description={service.description}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Result Column -->
+      <div>
+        <h3 class="text-white/40 uppercase mb-8">Ведем к результату</h3>
+        <div class="space-y-6">
+          {
+            services.result.map((service) => (
+              <ServiceItem
+                title={service.title}
+                description={service.description}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <!-- <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4"> -->
+    <div
+      class="flex flex-col md:flex-row justify-between lg:gap-8 gap-4 font-rf-expanded text-[18px]"
+    >
+      <input
+        type="text"
+        placeholder="Имя"
+        class="w-full md:w-1/3 w-min-[232px] bg-white/5 border border-white/10 rounded-[30px] px-6 py-4 text-white placeholder-white/40"
+      />
+      <input
+        type="tel"
+        placeholder="Телефон"
+        class="w-full md:w-1/3 w-min-[232px] bg-white/5 border border-white/10 rounded-[30px] px-6 py-4 text-white placeholder-white/40"
+      />
+      <div class="w-full md:w-1/3">
+        <GradientButton className="w-full mx-auto" text="Отправить" icon="icon3.png" />
+      </div>
+    </div>
+  </div>
+</ContentLayout>

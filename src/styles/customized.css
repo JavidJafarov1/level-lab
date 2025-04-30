@@ -1,0 +1,23 @@
+.client-side-label-center {
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 0px
+}
+
+.client-side-label-top {
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0px;
+}
+
+.client-side-label-bottom {
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 0px;
+}

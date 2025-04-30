@@ -1,0 +1,111 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<div class="service-item xl:w-full" data-expanded="false">
+  <div class="flex items-center justify-between p-4">
+    <div class="flex items-center gap-3">
+      <label class="custom-checkbox" onclick="event.stopPropagation();">
+        <input type="checkbox" class="hidden" />
+        <span class="checkmark"></span>
+      </label>
+      <h3 class="text-white text-[14px] font-medium">{title}</h3>
+    </div>
+    <button class="transform transition-transform duration-200" data-chevron>
+      <svg 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+        class="transform transition-transform duration-200"
+      >
+        <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2"/>
+      </svg>
+    </button>
+  </div>
+  <div 
+    class="description-content overflow-hidden transition-all duration-200 max-h-0"
+  >
+    <p class="text-white/60 p-4 text-sm">
+      {description}
+    </p>
+  </div>
+</div>
+
+<style>
+  .service-item {
+    background-color: #222222;
+    border-radius: 20px;
+  }
+
+  .service-item[data-expanded="true"] .description-content {
+    max-height: 200px;
+  }
+
+  .custom-checkbox {
+    display: block;
+    position: relative;
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 13px;
+    height: 13px;
+    border: 2px solid #FF4B26;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 0px;
+    width: 3px;
+    height: 6px;
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  input[type="checkbox"]:checked + .checkmark {
+    background-color: #FF4B26;
+  }
+
+  input[type="checkbox"]:checked + .checkmark:after {
+    opacity: 1;
+  }
+
+  .service-item[data-expanded="true"] [data-chevron] svg {
+    transform: rotate(180deg);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const serviceItems = document.querySelectorAll('.service-item');
+    
+    serviceItems.forEach(item => {
+      const chevronButton = item.querySelector('[data-chevron]');
+      
+      chevronButton?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isExpanded = item.getAttribute('data-expanded') === 'true';
+        item.setAttribute('data-expanded', (!isExpanded).toString());
+      });
+    });
+  });
+</script> 
